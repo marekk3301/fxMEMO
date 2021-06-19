@@ -26,8 +26,8 @@ public class StartController implements Initializable {
     public Button otherCategory;
     public Label warningText;
 
-    private final ObservableList<Integer> boardWidth = FXCollections.observableArrayList(4, 5);
-    private final ObservableList<Integer> boardHeight = FXCollections.observableArrayList(4, 5);
+    private final ObservableList<Integer> boardWidth = FXCollections.observableArrayList(4, 5, 6);
+    private final ObservableList<Integer> boardHeight = FXCollections.observableArrayList(4, 5, 6);
 
 
 
@@ -56,32 +56,30 @@ public class StartController implements Initializable {
             catch (Exception InvocationTargetException) {
                 warningText.setText("Set board size");
             }
-//            GameController.setSize(width, height);
-//            GameController.setCategory(category);
-//            try {
-//                changeScreen();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+            GameController.setSize(width, height);
+            GameController.setCategory(category);
+            changeToGameScreen(mouseEvent);
         }
     }
-
-//    public void changeScreen() throws IOException {
-//        Stage stage = Start.getMainAppStage();
-////        FXMLLoader loader = new FXMLLoader(getClass().getResource("D:\\javaProjects\\fxMEMO\\src\\game\\game.fxml"));
-//        URL fxmlLocation = getClass().getResource("src/game/game.fxml");
-//        FXMLLoader loader = new FXMLLoader(fxmlLocation);
-//        System.out.println(fxmlLocation);
-//        System.out.println(loader.getClass());
-//        AnchorPane anchorPane = loader.load();
-//        Scene scene = new Scene(anchorPane);
-//        stage.setScene(scene);
-//        stage.show();
-//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         boardWidthBox.getItems().addAll(boardWidth);
         boardHeightBox.getItems().addAll(boardHeight);
+    }
+
+    public void changeToGameScreen(MouseEvent mouseEvent) {
+        Stage stage = Start.getStage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/game/game.fxml"));
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = loader.load();
+            Scene scene = new Scene(anchorPane);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
