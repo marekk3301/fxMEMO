@@ -6,7 +6,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -22,12 +21,10 @@ public class StartController implements Initializable {
     public ComboBox boardWidthBox;
     public ComboBox boardHeightBox;
     public GridPane categoriesGrid;
-    public Button programmingCategory;
-    public Button otherCategory;
     public Label warningText;
 
-    private final ObservableList<Integer> boardWidth = FXCollections.observableArrayList(4, 5, 6);
-    private final ObservableList<Integer> boardHeight = FXCollections.observableArrayList(4, 5, 6);
+    private final ObservableList<Integer> boardWidth = FXCollections.observableArrayList(2, 4, 5, 6);
+    private final ObservableList<Integer> boardHeight = FXCollections.observableArrayList(2, 4, 6);
 
 
 
@@ -71,7 +68,7 @@ public class StartController implements Initializable {
     public void changeToGameScreen(MouseEvent mouseEvent) {
         Stage stage = Start.getStage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/game/game.fxml"));
-        AnchorPane anchorPane = null;
+        AnchorPane anchorPane;
         try {
             anchorPane = loader.load();
             Scene scene = new Scene(anchorPane);

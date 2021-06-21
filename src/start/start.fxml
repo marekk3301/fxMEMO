@@ -51,7 +51,7 @@
                               <Image url="@../categories/memesCategory.jpg" />
                            </image>
                         </ImageView>
-                        <Label text="Category" />
+                        <Label text="Memy" />
                      </children>
                   </VBox>
                   <Button fx:id="memesCategory" mnemonicParsing="false" onMouseClicked="#selectCategory" opacity="0.0" prefHeight="162.0" prefWidth="200.0" />
@@ -70,7 +70,6 @@
                   <Insets left="50.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="changeScreen" mnemonicParsing="false" onMouseClicked="#changeToGameScreen" text="Button" />
          </children>
       </HBox>
       <Label fx:id="warningText" alignment="CENTER" prefHeight="17.0" prefWidth="600.0" />

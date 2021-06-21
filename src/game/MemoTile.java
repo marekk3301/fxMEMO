@@ -20,24 +20,22 @@ public class MemoTile extends javafx.scene.control.Button{
         this.defaultGraphic = defaultGraphic;
         covered = true;
         onBoard = false;
-        this.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (covered) {
-                    uncover();
-                    if (GameController.firstUncovered.equals("")){
-                        GameController.firstUncovered = name;
-                    }
-                    else if (GameController.secondUncovered.equals("")) {
-                        GameController.secondUncovered = name;
-                    }
-                    GameController.play();
-                }else{
-                    System.out.println(name + inPair);
+        this.setOnAction(event -> {
+            if (covered) {
+                uncover();
+                if (GameController.firstUncovered.equals("")) {
+                    GameController.firstUncovered = name;
+                } else if (GameController.secondUncovered.equals("")) {
+                    GameController.secondUncovered = name;
                 }
+                GameController.play();
+            } else {
+                System.out.println(name + inPair);
             }
         });
     }
+
+
 
     public void flip() {
         if (covered) {
@@ -68,7 +66,7 @@ public class MemoTile extends javafx.scene.control.Button{
     public void uncover() {
         covered = false;
         MemoTile.super.setGraphic(graphic);
-        System.out.println("uncovering");
+//        System.out.println("uncovering");
     }
 
     public boolean isCovered() {

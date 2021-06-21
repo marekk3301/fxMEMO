@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.GameController">
    <children>
-      <VBox fx:id="gameContents" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="600.0">
-               <children>
-                  <Label fx:id="player1PointsLabel" prefHeight="17.0" prefWidth="275.0" text="0" />
-                  <Label fx:id="player2PointsLabel" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="275.0" text="0" />
-               </children>
-            </HBox>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="25.0" prefWidth="600.0">
-               <children>
-                  <Label prefHeight="17.0" prefWidth="275.0" text="Player 1" />
-                  <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="275.0" text="Player 2" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+      <VBox fx:id="gameContents" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
    </children>
 </AnchorPane>
