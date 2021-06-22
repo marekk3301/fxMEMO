@@ -26,10 +26,10 @@ public class GameController implements Initializable {
 
 //    ------ DECLARATIONS ------
 
-    public static Label player1PointsLabel;
-    public static Label player2PointsLabel;
-    public static Label player1Label;
-    public static Label player2Label;
+    private static Label player1PointsLabel;
+    private static Label player2PointsLabel;
+    private static Label player1Label;
+    private static Label player2Label;
 
     public VBox gameContents;
 
@@ -58,6 +58,7 @@ public class GameController implements Initializable {
 
     public static void setCategory(String newCategory) {
         category = newCategory;
+        System.out.println(category);
     }
 
 
@@ -70,7 +71,6 @@ public class GameController implements Initializable {
         ArrayList<String> names = listFilesForFolder(folder);
         Random random = new Random();
         boolean isFull = false;
-
 
             FileInputStream input;
             try {
@@ -110,7 +110,7 @@ public class GameController implements Initializable {
                     listFilesForFolder(fileEntry);
                 } else {
                     names.add(fileEntry.getName());
-//                    System.out.println(fileEntry.getName());
+                    System.out.println(fileEntry.getName());
                 }
             }
             return names;
@@ -153,10 +153,10 @@ public class GameController implements Initializable {
                 boolean added = false;
                 while (!added) {
                     MemoTile tile = map.get(keysAsArray.get(r.nextInt(keysAsArray.size())));
-                    if (!tile.onBoard) {
+                    if (!tile.isOnBoard()) {
                         game.add(tile, i, j, 1, 1 );
                         added = true;
-                        tile.onBoard = true;
+                        tile.setOnBoard(true);
                     }
                 }
 
@@ -241,7 +241,6 @@ public class GameController implements Initializable {
         if (player1.getPoints() > player2.getPoints()) {
             a.setTitle("Player 1 Wins!");
             a.setHeaderText("You have " + player1.getPoints() + " points");
-//            a.setGraphic();
         }
         else if (player1.getPoints() < player2.getPoints()) {
             a.setTitle("Player 2 Wins!");

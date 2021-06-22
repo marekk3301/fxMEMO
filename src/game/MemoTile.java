@@ -1,14 +1,12 @@
 package game;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 
 public class MemoTile extends javafx.scene.control.Button{
-    private String name;
-    private int inPair;
+    private final String name;
+    private final int inPair;
     private boolean covered;
-    public boolean onBoard;
+    private boolean onBoard;
     private final Node graphic;
     private final Node defaultGraphic;
 
@@ -35,7 +33,13 @@ public class MemoTile extends javafx.scene.control.Button{
         });
     }
 
+    public boolean isOnBoard() {
+        return onBoard;
+    }
 
+    public void setOnBoard(boolean onBoard) {
+        this.onBoard = onBoard;
+    }
 
     public void flip() {
         if (covered) {
@@ -46,14 +50,6 @@ public class MemoTile extends javafx.scene.control.Button{
             MemoTile.super.setGraphic(defaultGraphic);
             covered = true;
         }
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getInPair() {
-        return inPair;
     }
 
     public void cover() {
